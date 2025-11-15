@@ -1,3 +1,4 @@
 /*
-implement queue using two stacks in O (n) time
+implement queue single stack (using recursion)
 */
+
