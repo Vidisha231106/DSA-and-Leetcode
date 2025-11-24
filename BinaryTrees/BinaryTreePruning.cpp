@@ -9,20 +9,18 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+ #include <stdbool.h>
 class Solution {
 public:
-    void recursion(TreeNode* root){
-        if (root==NULL) return;
-        if (root->val!=1){
-            if (root->left!=NULL && root->left->val!=1) root->left=NULL;
-            if (root->right!=NULL && root->right->val!=1) root->right=NULL;
-        }
-        if (root->left!=NULL)recursion(root->left);
-        if (root->right!=NULL)recursion(root->right);
+    TreeNode* recursion(TreeNode* root){
+        if (root==NULL) return NULL;
+        root->left = recursion(root->left);
+        root->right = recursion(root->right);
+        if (root->left==NULL && root->right==NULL && root->val==0) return NULL;
+        return root;
     }
     TreeNode* pruneTree(TreeNode* root) {
-        TreeNode* copy_root=root;
-        recursion(root);
-        return copy_root;
+        if (root==NULL) return NULL;
+        return recursion(root);
     }
 };
