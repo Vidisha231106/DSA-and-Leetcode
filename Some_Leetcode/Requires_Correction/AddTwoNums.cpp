@@ -1,4 +1,4 @@
-//2
+//2 - correct logic, inefficient code
 
 /*Runtime Error
 1565 / 1569 testcases passed
@@ -70,5 +70,3 @@ public:
         return answer_head->next;
     }
 };
-
-
