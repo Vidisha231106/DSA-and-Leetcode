@@ -77,6 +77,7 @@ void myCircularQueueFree(MyCircularQueue* obj) {
         free(curr);
     }
     free(temp);
+    obj->count =0;
 }
 
 /**
