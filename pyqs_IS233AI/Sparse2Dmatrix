@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node{
+    int row, col, val;
+    struct Node* prev; 
+    struct Node* next;
+}Node;
+
+struct Node* head = NULL;
+
+Node* createNode(int r, int c, int v){
+    struct Node* new_node = (struct Node*) malloc (sizeof(Node));
+    new_node->row = r;
+    new_node->col = c;
+    new_node->val = v;
+
+    new_node->prev = NULL;
+    new_node->next = NULL;
+    return new_node;
+} 
+
+void insertNode(int r, int c, int v){
+    Node* new_node = createNode(r,c,v);
+    if (head==NULL){
+        head=new_node;
+        return;
+    }
+    Node* temp = head;
+    while (temp->next!=NULL)temp=temp->next;
+    temp->next = new_node;
+    new_node->prev = temp;
+}
+
+void display(){
+    Node* temp = head;
+    printf("\nRow Col Value\n");
+    while (temp!=NULL){
+        printf("%d   %d   %d\n", temp->row, temp->col, temp->val);
+        temp=temp->next;
+    }
+}
+
+//int main() { int m, n, x; printf("Enter rows and columns: "); scanf("%d %d", &m, &n); printf("Enter matrix elements:\n"); for (int i = 0; i < m; i++) { for (int j = 0; j < n; j++) { scanf("%d", &x); if (x != 0) insert(i, j, x); } } display(); return 0; }
