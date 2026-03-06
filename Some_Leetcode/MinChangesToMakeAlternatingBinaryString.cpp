@@ -1,5 +1,21 @@
 //1758
 
+/*
+BETTER SOLUTION:
+
+class Solution {
+    public int minOperations(String s) {
+        int count1 = 0;
+        for(int i = 0 ; i < s.length() ; i++){
+            char c = s.charAt(i);
+            char expected1 = (i%2 == 0) ? '0':'1';
+            if (c != expected1) count1++;
+        }
+        return Math.min(count1,s.length() - count1);
+    }
+}
+
+*/
 class Solution {
 public:
     int startNum(char num, string s){
