@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Vidisha/Desktop/MyPrograms/DSA/LinkedLists",
-      "program": "c:/Users/Vidisha/Desktop/MyPrograms/DSA/LinkedLists/build/Debug/outDebug",
+      "cwd": "c:/Users/Vidisha/Desktop/MyPrograms/DSA/DP",
+      "program": "c:/Users/Vidisha/Desktop/MyPrograms/DSA/DP/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
