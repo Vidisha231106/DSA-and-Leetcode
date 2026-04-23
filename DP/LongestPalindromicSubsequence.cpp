@@ -1,0 +1,27 @@
+// 516
+
+class Solution {
+public:
+    int longestPalindromeSubseq(string s) {
+        int n = s.length();
+        string s_new=s;
+        reverse(s_new.begin(), s_new.end());
+        vector <vector<int>> dp(n+1, vector<int> (n+1, -1));  
+        
+        // now problem is the same as longest common subsequence
+        for (int i=0; i<=n; i++){
+            dp[i][0]=0;
+        }        
+        for (int j=0; j<=n; j++){
+            dp[0][j]=0;
+        }
+        for (int i=1; i<=n; i++){
+            for (int j=1; j<=n; j++){
+                if (s[i-1]==s_new[j-1]) dp[i][j]=1+ dp[i-1][j-1];
+                else dp[i][j]=max(dp[i][j-1], dp[i-1][j]);
+            }
+        }
+        return dp[n][n];
+    }
+};
+
