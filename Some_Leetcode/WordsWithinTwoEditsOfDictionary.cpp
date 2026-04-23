@@ -1,5 +1,7 @@
 // 2452
 
+//Brute Force
+
 class Solution {
 public:
     vector<string> twoEditWords(vector<string>& queries, vector<string>& dictionary) {
