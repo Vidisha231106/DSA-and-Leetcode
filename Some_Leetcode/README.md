@@ -393,6 +393,32 @@ This folder is a grab bag of arrays, strings, intervals, stacks, math, and tree/
 - Time: O(total steps). Space: O(1).
 - Better approach: use difference-style batching or segment tree for many queries.
 
+### Find the Score Difference in a Game
+- File: [Some_Leetcode/FindTheScoreDifferenceInAGame.cpp](Some_Leetcode/FindTheScoreDifferenceInAGame.cpp)
+- Approach used: toggle active player flags on odd numbers and every 6th index; accumulate scores.
+- Time: O(n). Space: O(1).
+
+### Nth Ugly Number III
+- File: [Some_Leetcode/UglyNumber3.cpp](Some_Leetcode/UglyNumber3.cpp)
+- Approach used: binary search on answer range [1, 2e9]; count ugly numbers <= mid using inclusion-exclusion on lcm.
+- Time: O(log(2e9)). Space: O(1).
+
+### Valid Elements in an Array
+- File: [Some_Leetcode/ValidElementsInAnArray.cpp](Some_Leetcode/ValidElementsInAnArray.cpp)
+- Approach used: for each index, check if all left elements are less and all right elements are greater; O(n^2) nested loops.
+- Time: O(n^2). Space: O(1).
+- Better approach: compute prefix max and suffix min for O(n).
+
+### Maximum Product of Three Elements After One Replacement
+- File: [Some_Leetcode/MaximumProductOfThreeElementsAfterOneReplacement.cpp](Some_Leetcode/MaximumProductOfThreeElementsAfterOneReplacement.cpp)
+- Approach used: find two largest abs values, check various replacements and two-element products scaled by 1e5.
+- Time: O(n log n). Space: O(1).
+
+### Check If Number Is Digitorial Permutation
+- File: [Some_Leetcode/CheckDigitorialPermutation.cpp](Some_Leetcode/CheckDigitorialPermutation.cpp)
+- Approach used: sum factorials of digits; check if digit multiset of n equals digit multiset of factorial sum.
+- Time: O(log n). Space: O(1).
+
 ## Requires_Correction
 
 These files are marked incorrect or inefficient. Use this section to revisit them.

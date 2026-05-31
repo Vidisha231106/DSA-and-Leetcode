@@ -20,3 +20,14 @@ This folder focuses on graph traversal fundamentals (DFS/BFS), adjacency list co
 - Approach used: DFS on adjacency matrix; count connected components.
 - Time: O(n^2). Space: O(n).
 - Better approach: Union-Find can be used for iterative component counting.
+
+### Jump Game III
+- File: [Graphs/JumpGame3.cpp](Graphs/JumpGame3.cpp)
+- Approach used: BFS with visited array; explore all reachable indices by allowed jumps.
+- Time: O(n). Space: O(n).
+
+### Jump Game IV
+- File: [Graphs/JumpGame4.cpp](Graphs/JumpGame4.cpp)
+- Approach used: BFS level-by-level; map values to indices for same-value jumps; clear map after processing each level to avoid revisits.
+- Time: O(n). Space: O(n).
+- Better approach: instead of revisiting same-value indices, precompute and clear adjacency to O(n) total.

@@ -201,3 +201,99 @@ This folder covers classic DP patterns: 1D/2D tabulation, memoized recursion, in
 - Approach used: brute force recursion (TLE), then memoized recursion by index.
 - Time: O(n^2 * dict) worst-case. Space: O(n).
 - Better approach: use unordered_set and DP over indices for faster lookups.
+
+### Cherry Pickup II
+- File: [DP/CherryPickup2.cpp](DP/CherryPickup2.cpp)
+- Approach used: two paths moving down simultaneously with 3D memoization (row, col1, col2); accumulate cherries when paths occupy same cell.
+- Time: O(m*n^2). Space: O(m*n^2).
+
+### Last Stone Weight II
+- File: [DP/LastStoneWeight2.cpp](DP/LastStoneWeight2.cpp)
+- Approach used: partition stones into two groups; result = |S1 - S2| minimized by finding subset sum closest to total/2; 0/1 knapsack DP.
+- Time: O(n*sum/2). Space: O(sum/2).
+
+### Longest Almost Palindromic Substring
+- File: [DP/LongestAlmostPalindromicSubstring.cpp](DP/LongestAlmostPalindromicSubstring.cpp)
+- Approach used: DP tracking palindrome vs almost-palindrome (one character mismatch allowed) for all substrings.
+- Time: O(n^2). Space: O(n^2).
+
+### Interleaving String
+- File: [DP/InterleavingString.cpp](DP/InterleavingString.cpp)
+- Approach used: 2D DP where dp[i][j] = can s3[0..i+j-1] be formed from s1[0..i-1] and s2[0..j-1].
+- Time: O(n*m). Space: O(n*m).
+
+### Combination Sum IV
+- File: [DP/CombinationSum4.cpp](DP/CombinationSum4.cpp)
+- Approach used: memoized recursion; for each target, try subtracting each number and sum results.
+- Time: O(target * n). Space: O(target).
+
+### Maximum Number of Jumps to Reach the Last Index
+- File: [DP/MaximumNumberOfJumpsToReachTheLastIndex.cpp](DP/MaximumNumberOfJumpsToReachTheLastIndex.cpp)
+- Approach used: DP bottom-up; dp[i] = max jumps reachable from i by checking all j where |nums[j]-nums[i]| <= target.
+- Time: O(n^2). Space: O(n).
+
+### Perfect Squares
+- File: [DP/PerfectSquares.cpp](DP/PerfectSquares.cpp)
+- Approach used: 1D DP; dp[i] = minimum count of perfect squares summing to i; try all squares <= i.
+- Time: O(n*sqrt(n)). Space: O(n).
+
+### Profitable Schemes
+- File: [DP/ProfitableSchemes.cpp](DP/ProfitableSchemes.cpp)
+- Approach used: 3D memoized recursion dp[index][men_used][profit_made]; for each crime, decide to take or skip.
+- Time: O(n*m*minProfit). Space: O(n*m*minProfit).
+
+### Rotated Digits
+- File: [DP/RotatedDigits.cpp](DP/RotatedDigits.cpp)
+- Approach used: DP per digit; valid rotated = all digits valid (0,1,2,5,6,8,9) and at least one in (2,5,6,9).
+- Time: O(n). Space: O(n).
+
+### Shortest Common Supersequence
+- File: [DP/ShortestCommonSupersequence.cpp](DP/ShortestCommonSupersequence.cpp)
+- Approach used: LCS DP on two strings; backtrack from dp table, including common chars once and diff chars from both.
+- Time: O(n*m). Space: O(n*m).
+
+### Solving Questions With Brainpower
+- File: [DP/SolvingQuestionsWithBrainpower.cpp](DP/SolvingQuestionsWithBrainpower.cpp)
+- Approach used: memoized recursion; for each question, take it (gain points + skip ahead) or skip it.
+- Time: O(n). Space: O(n).
+
+### Super Ugly Number
+- File: [DP/SuperUglyNumber.cpp](DP/SuperUglyNumber.cpp)
+- Approach used: 1D DP with pointers per prime; at each step pick minimum and advance pointer for that prime.
+- Time: O(n*k). Space: O(n).
+
+### Target Sum
+- File: [DP/TargetSum.cpp](DP/TargetSum.cpp)
+- Approach used: partition DP where sum of positive = (target + total)/2; solve 0/1 knapsack to count ways.
+- Time: O(n*target). Space: O(target).
+
+### Unique Binary Search Trees
+- File: [DP/UniqueBinarySearchTrees.cpp](DP/UniqueBinarySearchTrees.cpp)
+- Approach used: memoized recursion; for root i in [1..n], count = count_left * count_right; dp[n].
+- Time: O(n^2). Space: O(n).
+- Better approach: recognize as Catalan number C_n.
+
+### Minimum Cost For Tickets
+- File: [DP/MinimumCostForTickets.cpp](DP/MinimumCostForTickets.cpp)
+- Approach used: DP over days; skip non-travel days; on travel days, choose 1/7/30 day pass with running sum.
+- Time: O(max_day). Space: O(max_day).
+
+### Minimum Cost to Move Between Indices
+- File: [DP/MinimumCostToMoveBetweenIndices.cpp](DP/MinimumCostToMoveBetweenIndices.cpp)
+- Approach used: forward and backward DP for cost; forward: if adjacent indices are closest, allow move for cost 1 vs diff; queries answered via DP difference.
+- Time: O(n + q). Space: O(n).
+
+### Minimum Deletions to Make String Balanced
+- File: [DP/MinimumDeletionsToMakeStringBalanced.cpp](DP/MinimumDeletionsToMakeStringBalanced.cpp)
+- Approach used: prefixes of 'b' before position, suffixes of 'a' after position; answer = min(b_before + a_after) for all splits.
+- Time: O(n). Space: O(n).
+
+### Minimum Insertion Steps to Make a String Palindrome
+- File: [DP/MinimumInsertionStepsToMakeAStringPalindrome.cpp](DP/MinimumInsertionStepsToMakeAStringPalindrome.cpp)
+- Approach used: LCS of string and its reverse gives longest palindromic subsequence; insertions = length - LCS_length.
+- Time: O(n^2). Space: O(n^2).
+
+### Minimum Cost Tree From Leaf Values
+- File: [DP/MinimumCostTreeFromLeafValues.cpp](DP/MinimumCostTreeFromLeafValues.cpp)
+- Approach used: interval DP; for each range, try all split points; cost = mctFromLeafValues(left) + mctFromLeafValues(right) + (max_left * max_right).
+- Time: O(n^3). Space: O(n^2).
