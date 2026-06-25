@@ -9,10 +9,6 @@ public:
             flag=1;
             return;
         }
-        if (visited[index]==1){
-            flag=1;
-            return;
-        }
         if (visited[index]==2) return;
         if (index==visited.size()) return;
         int n=v[index].size();
