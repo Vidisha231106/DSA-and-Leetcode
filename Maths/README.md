@@ -59,3 +59,63 @@ This folder covers mathematical problem-solving techniques including geometry (t
 - **Example:** n = 9, base (n - 2) = 7: 9 = 1×7 + 2, so digits are [1, 2] (not palindrome). For n = 9 in all bases 2 to 7, it's never palindromic in all of them (no such numbers exist for n ≥ 4).
 - **Approach used:** represent n in base (n - 2) using repeated modulo/division; check if digit sequence reads the same forwards and backwards.
 - **Time:** O(log n) [base conversion depth]. **Space:** O(1).
+
+### Angle Between Hands of a Clock
+- File: [Maths/AngleBetweenHandsOfAClock.cpp](Maths/AngleBetweenHandsOfAClock.cpp)
+- **Concept:** Compute the smaller angle between hour and minute hands of a clock given hours and minutes.
+- **Formula:**
+  - Hour hand position: $(h \mod 12 + m/60) \times 360/12$ degrees
+  - Minute hand position: $m \times 360/60$ degrees
+  - Angle between them: $\min(|a_1 - a_2|,\; 360 - |a_1 - a_2|)$ (always take the smaller of the two arcs)
+- **Approach used:** compute both hand angles directly from the formula and return the minimum of the absolute difference and its complement to 360.
+- **Time:** O(1). **Space:** O(1).
+
+### Frequency Balanced Subarray
+- File: [Maths/FrequencyBalancedSubarray.cpp](Maths/FrequencyBalancedSubarray.cpp)
+- **Concept:** Find the longest subarray where at most two distinct frequencies exist and one is exactly double the other (e.g., one element appears twice as often as every other), or all elements have the same frequency.
+- **Approach used:** brute-force O(n^2) with frequency-of-frequency tracking; for each starting index, expand right while maintaining `fof` (map of freq → count); check if `fof.size() == 2` with one freq being double the other, or all same freq (`distinct == 1`).
+- **Time:** O(n^2). **Space:** O(n) per window.
+- Better approach:
+  - Summarize current: O(n^2) nested loop with map per window start.
+  - Improvement: reformulate as a sliding window with careful fof tracking to achieve O(n).
+
+| Aspect | Current approach | Better approach |
+| --- | --- | --- |
+| Time | O(n^2) | O(n) sliding window |
+| Space | O(n) per expansion | O(alphabet) |
+
+### Maximize Sum of Device Ratings
+- File: [Maths/MaximizeSumOfDeviceRatings.cpp](Maths/MaximizeSumOfDeviceRatings.cpp)
+- **Concept:** Given m devices each with a vector of n ratings, choose exactly one rating from each device (one per position), taking exactly one value from each position index. Maximize the weighted sum.
+- **Approach used:** if n > 1, sort devices by their maximum rating (second element) and assign each device's best applicable rating; if n == 1, sort normally. Apply the minimum over all devices first, then the maximum from remaining devices.
+- **Time:** O(m log m + m*n). **Space:** O(1).
+- Note: the current implementation has a `cout` debug statement left in — not an issue for correctness but should be removed.
+
+### Maximum Length of Pair Chain
+- File: [Maths/MaximumLengthOfPairChain.cpp](Maths/MaximumLengthOfPairChain.cpp)
+- **Concept:** Given pairs [a, b], find the longest chain where each pair's left element is strictly greater than the previous pair's right element. This is equivalent to the interval scheduling problem.
+- **Approach used:** sort pairs by their second element (end value) using a swap trick; greedily extend the chain whenever the current pair's start > last chain end.
+- **Time:** O(n log n). **Space:** O(1).
+- **Edge case:** if the next pair's start equals the current end, it does not qualify (strict inequality required).
+
+### Median of Two Sorted Arrays
+- File: [Maths/MedianOfTwoSortedArrays.cpp](Maths/MedianOfTwoSortedArrays.cpp)
+- **Concept:** Find the median of two sorted arrays in O(log(min(m,n))) time using binary search on partition point.
+- **Formula:** partition both arrays such that left halves together have $(m+n+1)/2$ elements; the median is either `max(l1, l2)` for odd total or `(max(l1,l2) + min(r1,r2)) / 2` for even total.
+- **Approach used:** ensure smaller array is searched (swap if needed); binary search on cut point for the smaller array; compute `cut2 = (m+n+1)/2 - cut1`; validate partition using `l1 ≤ r2` and `l2 ≤ r1`.
+- **Time:** O(log(min(m,n))). **Space:** O(1).
+- **Edge cases:** use INT_MIN/INT_MAX as virtual elements when a cut is at 0 or end of array.
+
+### Russian Doll Envelopes
+- File: [Maths/RussianDollEnvelopes.cpp](Maths/RussianDollEnvelopes.cpp)
+- **Concept:** Find the maximum number of envelopes that can be nested inside each other (strictly increasing width and height).
+- **Approach used:** two implementations — (1) TLE O(n^2) DP: sort by width then height, do LIS on heights. (2) O(n log n) optimised: sort by width ascending, height descending for same width; then run patience-sort LIS (binary search with `lower_bound`) on heights. The descending height trick prevents counting two envelopes with equal width.
+- **Time:** O(n log n). **Space:** O(n).
+- Better approach:
+
+| Aspect | TLE DP approach | Optimised approach |
+| --- | --- | --- |
+| Time | O(n^2) | O(n log n) |
+| Technique | Standard LIS | Sort trick + patience sort |
+| Key insight | None | Sort by (w asc, h desc) prevents equal-width nesting |
+

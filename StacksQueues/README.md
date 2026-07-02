@@ -53,3 +53,16 @@ This folder covers stack and queue patterns, including expression conversion/eva
 - File: [StacksQueues/stacks_postfix_evaluation.c](StacksQueues/stacks_postfix_evaluation.c)
 - Approach used: stack of operands; apply operators.
 - Time: O(n). Space: O(n).
+
+### Daily Temperatures
+- File: [StacksQueues/DailyTemperatures.cpp](StacksQueues/DailyTemperatures.cpp)
+- Approach used: monotonic decreasing stack storing `{temperature, index}` pairs; for each new temperature, pop all stack elements that are strictly lower and record the distance to the current index as their answer.
+- Time: O(n). Space: O(n).
+- Better approach (included in file): backward scan — track the hottest temperature seen so far; skip days already hotter; for others, hop forward using known answers to find next warmer day faster.
+
+| Aspect | Current (stack) approach | Backward scan approach |
+| --- | --- | --- |
+| Time | O(n) amortized | O(n) amortized |
+| Space | O(n) stack | O(1) extra |
+| Readability | Very clean | Slightly tricky |
+

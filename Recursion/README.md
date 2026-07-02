@@ -64,3 +64,21 @@ This folder covers classic backtracking patterns: choose/explore/unchoose, pruni
 | --- | --- | --- |
 | Time | Generate all | O(n) build |
 | Space | Store all | O(n) |
+
+### N-Queens
+- File: [Recursion/N-Queens.cpp](Recursion/N-Queens.cpp)
+- Approach used: column-by-column backtracking; track which rows, upper diagonals, and lower diagonals are occupied using three boolean arrays; place queen in each valid row for current column and recurse.
+- Time: O(n!). Space: O(n) for the tracking arrays and O(n^2) for the board.
+- Note: using index arrays for rows/diagonals instead of re-scanning the board gives O(1) validity checks per placement.
+
+### Valid Binary Strings With Cost Limit
+- File: [Recursion/ValidBinaryStringsWithCostLimit.cpp](Recursion/ValidBinaryStringsWithCostLimit.cpp)
+- Approach used: backtracking generates all binary strings of length n; constraint: two consecutive '1's are not allowed; at the leaf level, compute cost = sum of 1-based positions of '1' bits and include only if cost ≤ k.
+- Time: O(2^n). Space: O(n) recursion + O(output).
+- Better approach: prune early by tracking cost incrementally during recursion rather than computing at the leaf; skip entire subtrees when accumulated cost would exceed k.
+
+| Aspect | Current approach | Better approach |
+| --- | --- | --- |
+| Cost check | At leaf (no pruning) | Incremental during DFS |
+| Time | O(2^n) full | O(2^n) but with strong pruning |
+

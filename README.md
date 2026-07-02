@@ -805,3 +805,385 @@ For **static arrays (no updates)**. After O(n log n) preprocessing, answers rang
 ---
 
 *Good luck with your assessment! 🚀*
+
+---
+
+## 21. Solved Problems Index
+
+A complete quick-reference index of every problem solved in this repository, organized by topic. Click a folder header to open the full topic README with detailed notes, approach explanations, and better-approach comparison tables.
+
+---
+
+### 📁 [Binary Trees](BinaryTrees/README.md)
+
+| Problem | LC # | Approach | Time | Space |
+|---|---|---|---|---|
+| Additional Tree Functions | — | Insert/delete/traversal | O(n) | O(h) |
+| Balance a Binary Search Tree | 1382 | Inorder collect + divide build | O(n) | O(n) |
+| Binary Tree Maximum Path Sum | 124 | DFS with global max | O(n) | O(h) |
+| Boundary Traversal | — | Left boundary + leaves + right boundary | O(n) | O(n) |
+| Construct Binary Tree from Inorder & Postorder | 106 | Recursive with hashmap | O(n) | O(n) |
+| Construct Binary Tree from Inorder & Preorder | 105 | Recursive with hashmap | O(n) | O(n) |
+| Construct Binary Tree from Preorder & Postorder | 889 | Recursive partition | O(n) | O(n) |
+| Convert BST to Greater Sum Tree | 538 | Reverse inorder with running sum | O(n) | O(h) |
+| Count Good Nodes in Binary Tree | 1448 | DFS tracking max on path | O(n) | O(h) |
+| Create Binary Tree From Descriptions | 2196 | Two-pass: child set + parent map | O(n) | O(n) |
+| Delete Nodes and Return Forest | 1110 | DFS, disconnect on delete | O(n) | O(n) |
+| Diameter of Binary Tree | 543 | DFS returning height, track max diameter | O(n) | O(h) |
+| Flatten Binary Tree to Linked List | 114 | Preorder rewire | O(n) | O(h) |
+| Invert Binary Tree | 226 | DFS swap left/right | O(n) | O(h) |
+| K-th Smallest Element in BST | 230 | Inorder with counter | O(n) | O(h) |
+| Lowest Common Ancestor | 236 | DFS return node when found | O(n) | O(h) |
+| Maximum Depth of Binary Tree | 104 | DFS: 1 + max(left, right) | O(n) | O(h) |
+| Maximum Width of Binary Tree | 662 | BFS with index tracking | O(n) | O(w) |
+| Merge Two Binary Trees | 617 | DFS simultaneous traversal | O(n) | O(h) |
+| Morris Inorder Traversal | — | Thread predecessor, no stack | O(n) | O(1) |
+| Path Sum II | 113 | DFS backtracking with path vector | O(n) | O(h) |
+| Populate Next Right Pointers | 116 | BFS or O(1) level linking | O(n) | O(1) |
+| Print Binary Tree | 655 | BFS with column width from height | O(n) | O(n) |
+| Right Side View | 199 | BFS, take last per level | O(n) | O(w) |
+| Serialize & Deserialize Binary Tree | 297 | BFS with null markers | O(n) | O(n) |
+| Sum Root to Leaf Numbers | 129 | DFS with running value | O(n) | O(h) |
+| Symmetric Tree | 101 | DFS mirror check | O(n) | O(h) |
+| Trim a BST | 669 | DFS prune nodes outside range | O(n) | O(h) |
+| Validate Binary Search Tree | 98 | DFS with min/max bounds | O(n) | O(h) |
+| Vertical Order Traversal | 987 | BFS + column sorting | O(n log n) | O(n) |
+| Zigzag Level Order Traversal | 103 | BFS with alternate reversal | O(n) | O(w) |
+
+---
+
+### 📁 [Dynamic Programming](DP/README.md)
+
+| Problem | LC # | Approach | Time | Space |
+|---|---|---|---|---|
+| Best Time to Buy and Sell Stock II | 122 | Greedy collect all gains | O(n) | O(1) |
+| Best Time to Buy and Sell Stock III | 123 | 3D DP + 4 rolling variables | O(n) | O(1) |
+| Best Time to Buy and Sell Stock IV | 188 | 3D DP with K transactions | O(n·K) | O(n·K) |
+| Best Time to Buy/Sell (Cooldown) | 309 | DP with 3 states | O(n) | O(1) |
+| Best Time to Buy/Sell (Fee) | 714 | DP hold/cash states | O(n) | O(1) |
+| Cherry Pickup II | 1463 | 3D DP two robots simultaneously | O(n·m²) | O(n·m²) |
+| Coin Change | 322 | Bottom-up 1D DP | O(n·amount) | O(amount) |
+| Coin Change II | 518 | Unbounded knapsack | O(n·amount) | O(amount) |
+| Combination Sum IV | 377 | 1D DP ordered arrangements | O(n·target) | O(target) |
+| Count Square Submatrices | 1277 | 2D DP min of neighbours + 1 | O(m·n) | O(1) |
+| Delete Operations for Two Strings | 583 | LCS-based min deletions | O(m·n) | O(m·n) |
+| Distinct Subsequences | 115 | Bottom-up 2D DP from end | O(m·n) | O(m·n) |
+| Domino and Tromino Tiling | 790 | DP with 4 states per column | O(n) | O(1) |
+| Frog Jump | 403 | DP with set of jump sizes per stone | O(n²) | O(n²) |
+| Guess Number Higher or Lower II | 375 | Interval DP | O(n³) | O(n²) |
+| House Robber | 198 | 1D DP rolling two vars | O(n) | O(1) |
+| House Robber II (circle) | 213 | Two runs excluding first/last | O(n) | O(1) |
+| House Robber III (tree) | 337 | Postorder DFS pair return | O(n) | O(h) |
+| House Robber IV | 2560 | Binary search + greedy check | O(n log max) | O(1) |
+| House Robber V | 3700 | 2D DP same-colour constraint | O(n) | O(n) |
+| Integer Break | 343 | Math: max product with 3s | O(n) | O(1) |
+| Interleaving String | 97 | 2D DP | O(m·n) | O(m·n) |
+| Largest Divisible Subset | 368 | Sort + LIS-style + backtrack | O(n²) | O(n) |
+| Last Stone Weight II | 1049 | 0/1 Knapsack partition | O(n·sum) | O(sum) |
+| Longest Almost Palindromic Substring | 3844 | 2D DP palindrome + almost-pal tables | O(n²) | O(n²) |
+| Longest Arithmetic Subsequence | 1027 | O(n²) DP with diff hashmaps | O(n²) | O(n²) |
+| Longest Arith. Subseq. of Given Diff | 1218 | Single-pass hashmap DP | O(n) | O(n) |
+| Longest Common Subsequence | 1143 | 2D DP | O(m·n) | O(m·n) |
+| Longest Increasing Subsequence | 300 | Patience sort + binary search | O(n log n) | O(n) |
+| Longest Palindromic Subsequence | 516 | 2D interval DP | O(n²) | O(n²) |
+| Longest String Chain | 1048 | Sort by length + LIS DP | O(n²·L) | O(n) |
+| Maximum Amount of Money Robot Can Earn | 3418 | 3D memoised DP with lives | O(m·n·3) | O(m·n·3) |
+| Maximum Number of Items From Sale | — | O(n²) divisibility + knapsack | O(n·B) | O(n·B) |
+| Maximum Number of Jumps | 2770 | 1D DP with constraint check | O(n²) | O(n) |
+| Maximum Path Score in a Grid | 3742 | 3D DP dp[i][j][cost] | O(m·n·k) | O(m·n·k) |
+| Maximum Product Subarray | 152 | Track max and min running product | O(n) | O(1) |
+| Min Cost Climbing Stairs | 746 | 1D DP rolling two vars | O(n) | O(1) |
+| Minimum Cost for Tickets | 983 | 1D DP over days | O(365) | O(365) |
+| Minimum Cost to Move Between Indices | 3919 | Forward + backward DP + queries | O(n+q) | O(n) |
+| Minimum Cost to Split into Ones | — | DP or closed form n(n-1)/2 | O(1) | O(1) |
+| Minimum Cost Tree From Leaf Values | 1130 | Interval DP | O(n³) | O(n²) |
+| Minimum Deletions to Make String Balanced | 1653 | DP or prefix B-count | O(n) | O(1) |
+| Minimum Falling Path Sum | 931 | 2D DP bottom-up | O(m·n) | O(1) |
+| Minimum Insertion Steps to Palindrome | 1312 | LPS-based DP | O(n²) | O(n²) |
+| Minimum Path Sum | 64 | 2D DP in-place | O(m·n) | O(1) |
+| Number of Dice Rolls With Target Sum | 1155 | Memoised recursion | O(n·t·k) | O(n·t) |
+| Number of Longest Increasing Subseq | 673 | DP tracking length + count | O(n²) | O(n) |
+| Palindrome Partitioning | 131 | Backtracking + palindrome DP | O(n·2ⁿ) | O(n²) |
+| Palindrome Partitioning II | 132 | Min cuts DP + isPalin table | O(n²) | O(n²) |
+| Palindrome Partitioning IV | 1745 | Check 3-part palindrome split | O(n²) | O(n²) |
+| Partition Equal Subset Sum | 416 | 0/1 Knapsack bitset | O(n·sum) | O(sum) |
+| Perfect Squares | 279 | DP coin change variant | O(n·√n) | O(n) |
+| Profitable Schemes | 879 | 3D DP profit/crime/member | O(n·P·G) | O(P·G) |
+| Rotated Digits | 788 | DP digit classification | O(n) | O(1) |
+| Shortest Common Supersequence | 1092 | LCS + reconstruct | O(m·n) | O(m·n) |
+| Solving Questions with Brainpower | 2140 | 1D DP backward | O(n) | O(n) |
+| Super Ugly Number | 313 | K-pointer min-heap DP | O(n·k) | O(k) |
+| Target Sum | 494 | 2D DP with positive/negative | O(n·sum) | O(sum) |
+| Triangle | 120 | Bottom-up 1D DP | O(n²) | O(n) |
+| Unique Binary Search Trees | 96 | Catalan number DP | O(n²) | O(n) |
+| Unique Paths | 62 | 2D DP → 1D rolling | O(m·n) | O(n) |
+| Word Break | 139 | DP with dictionary set | O(n²) | O(n) |
+
+---
+
+### 📁 [Graphs](Graphs/README.md)
+
+| Problem | LC # | Approach | Time | Space |
+|---|---|---|---|---|
+| Clone Graph | 133 | DFS + hashmap | O(V+E) | O(V) |
+| Course Schedule I (cycle) | 207 | DFS 3-state | O(V+E) | O(V) |
+| Course Schedule II (topo) | 210 | DFS 3-state + stack | O(V+E) | O(V) |
+| Course Schedule IV (reachability) | 1462 | Floyd-Warshall reachability | O(V²+Q) | O(V²) |
+| Find City With Smallest Neighbours | 1334 | Floyd-Warshall + threshold count | O(V³) | O(V²) |
+| Find if Path Exists | 1971 | DFS from source | O(V+E) | O(V+E) |
+| Number of Provinces | 547 | DFS count components | O(n²) | O(n) |
+| **BFS sub-folder** | | | | |
+| 01-Matrix | 542 | Multi-source BFS | O(m·n) | O(m·n) |
+| Is Graph Bipartite | 785 | BFS 2-colouring | O(V+E) | O(V) |
+| Jump Game III | 1306 | BFS visited | O(n) | O(n) |
+| Jump Game IV | 1345 | BFS + value-to-index map | O(n) | O(n) |
+| Map of Highest Peak | 1765 | Multi-source BFS | O(m·n) | O(m·n) |
+| Rotting Oranges | 994 | Multi-source BFS | O(m·n) | O(m·n) |
+| Word Ladder | 127 | BFS character replacement | O(N·L·26) | O(N) |
+| Word Ladder II | 126 | BFS parent-map + DFS reconstruct | O(N·L·26) | O(N²) |
+| **DFS sub-folder** | | | | |
+| Find Eventual Safe States | 802 | DFS 4-state condition | O(V+E) | O(V) |
+| Island Perimeter | 463 | DFS count exposed edges | O(m·n) | O(m·n) |
+| Number of Enclaves | 1020 | DFS from border | O(m·n) | O(m·n) |
+| Number of Islands | 200 | DFS flood fill | O(m·n) | O(m·n) |
+| Number of Ways to Assign Edge Weights | 3558 | DFS depth + 2^(depth-1) | O(V+E) | O(V) |
+| Surrounded Regions | 130 | DFS from border O's | O(m·n) | O(m·n) |
+| **ShortestPath sub-folder** | | | | |
+| Cheapest Flights Within K Stops | 787 | Modified Dijkstra with stops | O(E·k·log(V·k)) | O(V·k) |
+| Network Delay Time | 743 | Dijkstra min-heap | O((V+E) log V) | O(V+E) |
+| Number of Ways to Arrive at Destination | 1976 | Dijkstra + ways[] | O((V+E) log V) | O(V+E) |
+| Path With Minimum Effort | 1631 | Dijkstra on max diff | O(m·n·log(m·n)) | O(m·n) |
+| Shortest Path in Binary Matrix | 1091 | BFS 8-directional | O(n²) | O(n²) |
+| Shortest Path With K Consecutive Identical Chars | 3970 | Dijkstra + consecutive state | O(E·k·log(V·k)) | O(V·k) |
+
+---
+
+### 📁 [Linked Lists](LinkedLists/README.md)
+
+| Problem | LC # | Approach | Time | Space |
+|---|---|---|---|---|
+| Add Two Numbers | 2 | Iterate with carry | O(n+m) | O(1) |
+| Add Two Numbers II | 445 | Reverse + add + reverse | O(n+m) | O(1) |
+| Copy List with Random Pointer | — | Interleave or HashMap | O(n) | O(1)/O(n) |
+| Delete Node in a Linked List | 237 | Copy-forward trick | O(n) | O(1) |
+| Delete Nodes Matching Array | 3217 | HashSet + scan | O(n+m) | O(m) |
+| Design Circular Deque | 1670 | Circular singly LL | O(1)/O(n) | O(k) |
+| Design Circular Queue | 622 | Circular singly LL | O(1) | O(k) |
+| Flatten Multilevel Doubly LL | 430 | DFS splice | O(n²) | O(h) |
+| Intersection of Two Linked Lists | 160 | Two-pointer switch heads | O(n+m) | O(1) |
+| Linked List Cycle | 141 | Floyd slow/fast | O(n) | O(1) |
+| Linked List Cycle II | 142 | Floyd + reset to head | O(n) | O(1) |
+| Merge In Between Linked Lists | 1669 | Find a-1 and b+1, splice | O(n+m) | O(1) |
+| Merge Two Sorted Lists | 21 | Iterative merge | O(n+m) | O(1) |
+| Next Greater Element (circular) | — | Stack backward scan | O(n) | O(n) |
+| Odd Even Linked List | 328 | Split + reconnect | O(n) | O(1) |
+| Partition List | 86 | Two dummy-head lists | O(n) | O(1) |
+| Random Node | 382 | Reservoir sampling | O(n) | O(1) |
+| Remove Duplicates from Sorted List II | 82 | Dummy head skip runs | O(n) | O(1) |
+| Remove Nodes Greater on Right | 2487 | Reverse + max filter + reverse | O(n) | O(1) |
+| Remove Nodes From Linked List | — | Reverse + monotone + reverse | O(n) | O(1) |
+| Reorder List | 143 | Find mid + reverse second + weave | O(n) | O(1) |
+| Reverse Linked List II | 92 | Isolate sublist + reverse + reconnect | O(n) | O(1) |
+| Reverse Nodes in Even Length Groups | — | Measure groups, reverse even ones | O(n²) | O(1) |
+| Reverse Nodes in k-Group | 25 | Cut k-segment, reverse, reconnect | O(n) | O(1) |
+| Sort List | 148 | Merge sort (multimap used, O(n) space) | O(n log n) | O(n) |
+| Split Linked List in Parts | 725 | Length + split with remainder | O(n) | O(1) |
+| Swap Nodes in Pairs | 24 | Iterative pointer swaps | O(n) | O(1) |
+| Swap Two Nodes (by k) | 1721 | Two-pass locate, swap values | O(n) | O(1) |
+
+---
+
+### 📁 [Maths](Maths/README.md)
+
+| Problem | LC # | Concept / Formula | Time | Space |
+|---|---|---|---|---|
+| Angle Between Clock Hands | 1344 | Hour: (h mod 12 + m/60)×30°; Minute: m×6°; take min angle | O(1) | O(1) |
+| Frequency Balanced Subarray | 3960 | Freq-of-freq map; one freq = double the other | O(n²) | O(n) |
+| Largest Number | 179 | Custom comparator sort: (a+b) vs (b+a) | O(n log n) | O(n) |
+| Maximize Sum of Device Ratings | 3961 | Sort by max rating; assign greedily | O(m log m) | O(1) |
+| Maximum Length of Pair Chain | 646 | Greedy interval scheduling (sort by end) | O(n log n) | O(1) |
+| Median of Two Sorted Arrays | 4 | Binary search on partition point | O(log min(m,n)) | O(1) |
+| Russian Doll Envelopes | 354 | Sort (w asc, h desc) + patience LIS | O(n log n) | O(n) |
+| Strictly Palindromic Number | 2633 | Base conversion + palindrome check | O(log n) | O(1) |
+
+---
+
+### 📁 [Recursion](Recursion/README.md)
+
+| Problem | LC # | Approach | Time | Space |
+|---|---|---|---|---|
+| Combination Sum | 39 | Backtracking with reuse | O(2ⁿ) | O(target/min) |
+| Combination Sum II | 40 | Backtracking skip duplicates | O(2ⁿ) | O(n) |
+| Generate Parentheses | 22 | Backtracking open/close balance | O(4ⁿ/√n) | O(n) |
+| Kth Lexicographical Happy String | 1415 | Generate all then pick k | O(3·2^(n-1)) | O(output) |
+| N-Queens | 51 | Column-by-column backtracking with 3 arrays | O(n!) | O(n²) |
+| Permutations | 46 | Backtracking swap/restore | O(n·n!) | O(n) |
+| Permutations II | 47 | Backtracking + skip duplicates | O(n·n!) | O(n) |
+| Subsets | 78 | Backtracking include/exclude | O(n·2ⁿ) | O(n) |
+| Subsets II | 90 | Backtracking skip duplicate sibling | O(n·2ⁿ) | O(n) |
+| Valid Binary Strings With Cost Limit | 3955 | Backtracking no-consecutive-1s + cost check | O(2ⁿ) | O(n) |
+
+---
+
+### 📁 [Sliding Window](SlidingWindow/README.md)
+
+| Problem | LC # | Approach | Time | Space |
+|---|---|---|---|---|
+| Arithmetic Slices | 413 | Nested expand (O(n²)) or single-pass O(n) | O(n²) | O(1) |
+| Best Time to Buy and Sell Stock | 121 | Track min so far + max profit | O(n) | O(1) |
+| Binary Subarrays With Sum | 930 | Prefix sum + hash | O(n) | O(n) |
+| Count Subarrays With Fixed Bounds | 2444 | Variable window with min/max tracking | O(n) | O(1) |
+| Find All Anagrams in a String | 438 | Fixed window freq map | O(n+m) | O(26) |
+| Fruits Into Baskets | 904 | Variable window max 2 types | O(n) | O(1) |
+| Longest Repeating Character Replacement | 424 | Variable window + max freq | O(n) | O(26) |
+| Longest Subarray of 1s After Deleting One | 1493 | Variable window at most 1 zero | O(n) | O(1) |
+| Longest Turbulent Window | 978 | Variable window turbulence check | O(n) | O(1) |
+| Max Consecutive Ones III | 1004 | Variable window at most k zeros | O(n) | O(1) |
+| Minimum Window Substring | 76 | Variable window freq map target match | O(n+m) | O(26) |
+| No. of Substrings Containing All 3 Chars | 1358 | Variable window, add (n-right) | O(n) | O(1) |
+| Permutation in String | 567 | Fixed window anagram check | O(n+m) | O(26) |
+| Subarray Product Less Than K | 713 | Variable window product | O(n) | O(1) |
+
+---
+
+### 📁 [Stacks & Queues](StacksQueues/README.md)
+
+| Problem | LC # | Approach | Time | Space |
+|---|---|---|---|---|
+| Asteroid Collision | 735 | Stack simulation with sign | O(n) | O(n) |
+| Build Array With Stack Ops | 1441 | Simulate push/pop | O(n) | O(1) |
+| Daily Temperatures | 739 | Monotonic decreasing stack | O(n) | O(n) |
+| Decode String | 394 | Stack of strings | O(n·k) | O(n) |
+| Evaluate Reverse Polish Notation | 150 | Operand stack | O(n) | O(n) |
+| Infix to Postfix | — | Operator stack with precedence | O(n) | O(n) |
+| Min Stack | 155 | Auxiliary min-stack | O(1) all | O(n) |
+| Online Stock Span | 901 | Monotonic stack of (price, span) | O(n) | O(n) |
+| Postfix Evaluation | — | Operand stack | O(n) | O(n) |
+| Prefix to Infix | — | Stack right-to-left | O(n) | O(n) |
+
+---
+
+### 📁 [Mixed LeetCode Practice](Some_Leetcode/README.md)
+
+#### Binary Search Problems
+
+| Problem | LC # | Approach | Time | Space |
+|---|---|---|---|---|
+| Capacity to Ship Packages Within D Days | 1011 | Binary search on capacity | O(n log S) | O(1) |
+| Find the Smallest Divisor Given a Threshold | 1283 | Binary search on divisor | O(n log max) | O(1) |
+| Koko Eating Bananas | 875 | Binary search on speed | O(n log max) | O(1) |
+| Minimum Number of Days to Make M Bouquets | 1482 | Binary search on days | O(n log max) | O(1) |
+| Search a 2D Matrix | 74 | Nested binary search | O(log n + log m) | O(1) |
+| Search a 2D Matrix II | 240 | Start top-right corner | O(n+m) | O(1) |
+| Single Element in Sorted Array | 540 | Binary search on even indices | O(log n) | O(1) |
+| Successful Pairs of Spells and Potions | 2300 | Binary search + postfix array | O((s+p) log p) | O(p) |
+| Nth Ugly Number III | 1201 | Binary search + inclusion-exclusion | O(log 2e9) | O(1) |
+| Find First and Last Position | 34 | Binary search left + right bound | O(log n) | O(1) |
+
+#### Array / Two-Pointer Problems
+
+| Problem | LC # | Approach | Time | Space |
+|---|---|---|---|---|
+| 3Sum | 15 | Sort + two pointers | O(n²) | O(1) |
+| 3Sum Closest | 16 | Sort + two pointers min diff | O(n²) | O(1) |
+| 4Sum | 18 | Two loops + two pointers | O(n³) | O(1) |
+| 4Sum II | 454 | Hash pair sums | O(n²) | O(n²) |
+| Check Array Sorted and Rotated | 1752 | Count drops ≤ 1 | O(n) | O(n) |
+| Minimum Swaps to Move Zeros to End | 3936 | Two-pointer swap | O(n) | O(1) |
+| Trapping Rain Water | 42 | Two-pointer running max | O(n) | O(1) |
+| Majority Element II | 229 | Boyer-Moore voting | O(n) | O(1) |
+| Maximum Subarray | 53 | Kadane's algorithm | O(n) | O(1) |
+| Merge Intervals | 56 | Sort + greedy merge | O(n log n) | O(1) |
+| Non-Overlapping Intervals | 435 | Sort by end + greedy | O(n log n) | O(1) |
+| Product of Array Except Self | 238 | Prefix + suffix product | O(n) | O(1) |
+| Rotate Image | 48 | Transpose + reverse rows | O(n²) | O(1) |
+| Set Matrix Zeroes | 73 | First row/col as flags | O(m·n) | O(1) |
+| Spiral Matrix | 54 | Boundary traversal | O(m·n) | O(1) |
+
+#### String Problems
+
+| Problem | LC # | Approach | Time | Space |
+|---|---|---|---|---|
+| Add Binary | 67 | Simulate from end with carry | O(n+m) | O(1) |
+| Check If Strings Can Be Made Equal (Ops 1) | 2839 | Compare even/odd index sets | O(1) | O(1) |
+| Check If Strings Can Be Made Equal (Ops 2) | 2840 | Multiset or frequency array compare | O(n log n) | O(n) |
+| Decode the Slanted Ciphertext | 2075 | Diagonal traversal step cols+1 | O(n) | O(1) |
+| Greatest Common Divisor of Strings | 1071 | Check concatenation equality + gcd | O(n) | O(n) |
+| Process String With Special Operations | 3614 | Forward length pass + backward resolve | O(n) | O(n) |
+| Sort Vowels by Frequency | 3913 | Freq count + sort by freq/pos | O(n) | O(1) |
+| Shortest Palindrome | 214 | KMP LPS on s + '#' + rev(s) | O(n) | O(n) |
+| Valid String With Wildcards | 678 | Range [min_open, max_open] tracking | O(n) | O(1) |
+| Words Within Two Edits of Dictionary | 2452 | Brute compare | O(q·d·L) | O(1) |
+
+#### Greedy / Math Problems
+
+| Problem | LC # | Approach | Time | Space |
+|---|---|---|---|---|
+| Candy | 135 | Two-pass left/right arrays | O(n) | O(n) |
+| Earliest Finish Time for Land and Water Rides I | 3633 | O(l·w) brute all orderings | O(l·w) | O(1) |
+| Earliest Finish Time for Land and Water Rides II | 3635 | O(l+w) greedy best-first-ride | O(l+w) | O(1) |
+| Integer to Roman | 12 | Greedy symbol table | O(1) | O(1) |
+| Jump Game I | 55 | Greedy max reach | O(n) | O(1) |
+| Jump Game II | 45 | BFS-level greedy | O(n) | O(1) |
+| Maximum Sum of K Selected Elements | 3974 | Sort desc + multiplier | O(n log n) | O(1) |
+| Minimum Energy to Maintain Brightness | 3951 | Count steps + merge intervals | O(n log n) | O(1) |
+| Min Changes to Make Alternating Binary String | 1758 | Count mismatches for two patterns | O(n) | O(1) |
+| Min Penalty for a Shop | 2483 | Prefix loss + single pass | O(n) | O(1) |
+| Next Greater Element III | 556 | Next permutation on digits | O(d) | O(1) |
+| Next Permutation | 31 | Find pivot + swap + reverse suffix | O(n) | O(1) |
+| Nim Game | 292 | n % 4 != 0 | O(1) | O(1) |
+| Non-Overlapping Intervals | 435 | Sort by end, greedy keep | O(n log n) | O(1) |
+| Robot Collisions | 2751 | Sort by position, stack simulation | O(n log n) | O(n) |
+| Total Waviness of Numbers in Range | 3751 | Sliding 3-digit window per number | O(range·log n) | O(1) |
+
+#### Stack / Queue Problems
+
+| Problem | LC # | Approach | Time | Space |
+|---|---|---|---|---|
+| Decrypt Code (Sliding Window Circular) | 1652 | Circular index loop | O(n·|k|) | O(n) |
+| Robot Collisions | 2751 | Stack collision simulation | O(n log n) | O(n) |
+| Sum of Subarray Minimums | 907 | Monotonic stack PSE/NSE | O(n) | O(n) |
+| Sum of Subarray Ranges | 2104 | Monotonic stacks for min+max | O(n) | O(n) |
+| Walking Robot Simulation | 874 | Simulate with obstacle hash set | O(n) | O(obs) |
+
+#### Binary Search on Answer Pattern
+
+> **Key revision note:** All these problems share the same template:
+> 1. Set `lo = smallest possible answer`, `hi = largest possible answer`
+> 2. Binary search: check if `mid` is feasible in O(n)
+> 3. Shrink window to find minimum feasible value
+
+| Problem | What to binary-search on | Feasibility check |
+|---|---|---|
+| Koko Eating Bananas | Eating speed | Sum of ceil(pile/speed) ≤ h |
+| Capacity to Ship Packages | Ship capacity | Greedy pack count ≤ days |
+| Minimum Days for M Bouquets | Wait days | Greedy adjacent count ≥ m·k |
+| Find Smallest Divisor | Divisor value | Sum of ceil(nums[i]/div) ≤ threshold |
+| Successful Pairs | Minimum potion needed | Binary search in sorted potions |
+
+---
+
+### 📁 [Graphs/BFS — 01-Matrix vs Multi-source BFS Pattern](Graphs/README.md)
+
+> **Key revision note:** Whenever you need shortest distance from multiple sources simultaneously, seed ALL sources into the BFS queue at distance 0 and run one BFS. This avoids O(sources × BFS) repeated searches.
+
+**Examples:** 01-Matrix (distance to nearest 0), Rotting Oranges (time to rot all), Map of Highest Peak (height from water cells).
+
+---
+
+### 🔁 Cross-Topic Revision Patterns
+
+| Pattern | Where to look | Key technique |
+|---|---|---|
+| Binary search on answer | Some_Leetcode (Koko, Capacity, Bouquets, Divisor) | `lo/hi` + greedy feasibility |
+| Dijkstra variants | Graphs/ShortestPath | Add extra state dimension (stops, cost) to visited array |
+| 3D DP | DP (Robot Earn, Max Path Score, House Robber IV, Cherry Pickup) | Add constraint as third DP dimension |
+| DFS from border → flip interior | Graphs/DFS (Surrounded Regions, Number of Enclaves) | Mark border-connected first, then flip remaining |
+| Interval scheduling greedy | Maths (Pair Chain), Some_Leetcode (Non-overlapping, Candy) | Sort by end time, greedily keep earliest-ending |
+| Monotonic stack | StacksQueues, Some_Leetcode (Subarray Min/Max) | Each element pushed/popped once → O(n) |
+| Patience sort LIS | DP (LIS, Russian Doll Envelopes) | `lower_bound` on active sequence → O(n log n) |
+| Parent-map BFS for all shortest paths | Graphs/BFS (Word Ladder II) | BFS builds parent map, DFS reconstructs all paths |
+
+---
+
+*Good luck with your assessment! 🚀*

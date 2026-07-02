@@ -419,6 +419,121 @@ This folder is a grab bag of arrays, strings, intervals, stacks, math, and tree/
 - Approach used: sum factorials of digits; check if digit multiset of n equals digit multiset of factorial sum.
 - Time: O(log n). Space: O(1).
 
+### Capacity to Ship Packages Within D Days
+- File: [Some_Leetcode/CapacityToShipPackagesWithinDDays.cpp](Some_Leetcode/CapacityToShipPackagesWithinDDays.cpp)
+- Approach used: binary search on capacity in range [max(weights), sum(weights)]; for each mid, simulate packing greedily and count days needed; shrink right if feasible, else grow left.
+- Time: O(n log(sum)). Space: O(1).
+
+### Earliest Finish Time for Land and Water Rides I
+- File: [Some_Leetcode/EarliestFinishTimeForLandAndWaterRides1.cpp](Some_Leetcode/EarliestFinishTimeForLandAndWaterRides1.cpp)
+- Approach used: brute-force O(l*w) — try all (land ride, water ride) orderings (land first then best water, water first then best land); handles overlapping start times by deferring start.
+- Time: O(l*w). Space: O(1).
+- Better approach: see file 2 (EarliestFinishTimeForLandAndWaterRides2) for O(l+w).
+
+### Earliest Finish Time for Land and Water Rides II
+- File: [Some_Leetcode/EarliestFinishTimeForLandAndWaterRides2.cpp](Some_Leetcode/EarliestFinishTimeForLandAndWaterRides2.cpp)
+- Approach used: O(l+w) greedy — find the earliest possible end time for one type (land or water), then for the other type find the earliest that starts after (or at) that time using `max(end_time, start_j)`; take the minimum over both orderings.
+- Time: O(l+w). Space: O(1).
+- Better approach compared to file 1:
+
+| Aspect | Brute force (file 1) | Greedy (file 2) |
+| --- | --- | --- |
+| Time | O(l*w) | O(l+w) |
+| Reasoning | All combos | Best first ride + best second |
+
+### Find the Smallest Divisor Given a Threshold
+- File: [Some_Leetcode/FindTheSmallestDivisorGivenAThreshold.cpp](Some_Leetcode/FindTheSmallestDivisorGivenAThreshold.cpp)
+- Approach used: binary search on divisor in range [1, max(nums)]; for each mid, compute sum of ceil(nums[i]/mid); if sum <= threshold, shrink right; else grow left.
+- Time: O(n log(max)). Space: O(1).
+
+### Koko Eating Bananas
+- File: [Some_Leetcode/KokoEatingBananas.cpp](Some_Leetcode/KokoEatingBananas.cpp)
+- Approach used: binary search on eating speed in range [1, max(piles)]; for each speed mid, compute total hours needed; shrink right if feasible, else grow left.
+- Time: O(n log(max)). Space: O(1).
+
+### Maximum Total Sum of K Selected Elements
+- File: [Some_Leetcode/MaximumTotalSumOfKSelectedElements.cpp](Some_Leetcode/MaximumTotalSumOfKSelectedElements.cpp)
+- Approach used: sort descending; take k largest elements; multiply the first `mul` elements by the multiplier (if mul > 0), others by 1.
+- Time: O(n log n). Space: O(1).
+
+### Minimum Energy to Maintain Brightness
+- File: [Some_Leetcode/MinimumEnergyToMaintainBrightness.cpp](Some_Leetcode/MinimumEnergyToMaintainBrightness.cpp)
+- Approach used: compute minimum number of steps to reach brightness (each step adds 3); merge the given intervals using standard interval-merge sort and accumulate total covered range; return `total * steps`.
+- Time: O(n log n). Space: O(1).
+
+### Minimum Number of Days to Make M Bouquets
+- File: [Some_Leetcode/MinimumNumberOfDaysToMakeMBouquets.cpp](Some_Leetcode/MinimumNumberOfDaysToMakeMBouquets.cpp)
+- Approach used: binary search on days in range [min(bloomDay), max(bloomDay)]; for each mid day, greedily count how many bouquets of k adjacent flowers can be made; shrink right if feasible, grow left otherwise.
+- Time: O(n log(max-min)). Space: O(1).
+
+### Minimum Swaps to Move Zeros to End
+- File: [Some_Leetcode/MinimumSwapsToMoveZerosToEnd.cpp](Some_Leetcode/MinimumSwapsToMoveZerosToEnd.cpp)
+- Approach used: two-pointer — if left is 0 and right is non-zero, swap and advance both; if right is 0, move right left; otherwise advance left; count all swaps.
+- Time: O(n). Space: O(1).
+
+### Process String With Special Operations
+- File: [Some_Leetcode/ProcessStringWithSpecialOperations.cpp](Some_Leetcode/ProcessStringWithSpecialOperations.cpp)
+- Approach used: forward pass to compute virtual string length at each index (`v[i]`); backward pass to resolve position k by tracing back through `#` (halve modulo), `%` (mirror position), and letter characters (check if k matches).
+- Time: O(n). Space: O(n) for length tracking array.
+
+### Search a 2D Matrix
+- File: [Some_Leetcode/SearchA2DMatrix.cpp](Some_Leetcode/SearchA2DMatrix.cpp)
+- Approach used: nested binary search — first binary search on first column to find candidate row; then binary search within that row.
+- Time: O(log n + log m). Space: O(1).
+- Better approach: treat the matrix as a flat sorted array of size n*m and do one binary search.
+
+| Aspect | Current approach | Better approach |
+| --- | --- | --- |
+| Searches | 2 (row + col) | 1 (flat) |
+| Code | More complex | Simpler |
+
+### Search a 2D Matrix II
+- File: [Some_Leetcode/SearchA2DMatrix2.cpp](Some_Leetcode/SearchA2DMatrix2.cpp)
+- Approach used: start from top-right corner; if current > target, move left; if current < target, move down; if equal return true.
+- Time: O(n+m). Space: O(1).
+
+### Sort Vowels by Frequency
+- File: [Some_Leetcode/SortVowelByFrequency.cpp](Some_Leetcode/SortVowelByFrequency.cpp)
+- Approach used: count frequency of each vowel; record first appearance position; sort vowels by frequency descending (ties broken by first appearance); build new vowel sequence and replace vowels in original string in order.
+- Time: O(n). Space: O(1) extra (5 vowels).
+
+### Successful Pairs of Spells and Potions
+- File: [Some_Leetcode/SuccessfulPairsOfSpellsAndPotions.cpp](Some_Leetcode/SuccessfulPairsOfSpellsAndPotions.cpp)
+- Approach used: two implementations — (1) Binary search (included first): sort potions; for each spell, binary search for minimum potion where `spell * potion >= success`. (2) Postfix count: build frequency array of potion values, compute postfix sums; for each spell, compute minimum needed potion via ceiling division and look up postfix count.
+- Time: O((s+p) log p) binary search or O(p + s) postfix. Space: O(p).
+
+| Aspect | Binary search | Postfix |
+| --- | --- | --- |
+| Time | O((s+p) log p) | O(p + s) |
+| Memory | O(p) sort | O(max_potion) |
+
+### Total Waviness of Numbers in Range
+- File: [Some_Leetcode/TotalWavinessOfNumbersInRange1.cpp](Some_Leetcode/TotalWavinessOfNumbersInRange1.cpp)
+- Approach used: two implementations — (1) My code: iterate all numbers ≥ 100 in range, extract digits, count interior digits that form local max or min. (2) Optimised: sliding 3-digit window using a/b/c variables, eliminating the digit extraction array.
+- Note: file contains `cout` debug statements that should be removed.
+- Time: O((num2 - num1) * log(num2)). Space: O(1).
+
+### Trapping Rain Water
+- File: [Some_Leetcode/TrappingRainWater.cpp](Some_Leetcode/TrappingRainWater.cpp)
+- Approach used: two-pointer — maintain `left_max` and `right_max`; at each step move the side with smaller height; add `max - height` to answer.
+- Time: O(n). Space: O(1).
+
+### Valid String With Wildcards (LC 678)
+- File: [Some_Leetcode/validStringBrackets.c](Some_Leetcode/validStringBrackets.c)
+- Approach used: track the range `[open_flag, close_flag]` of possible open-bracket counts; on '(' increment both; on ')' decrement both but clamp open_flag to 0; on '*' decrement open_flag (treat as ')') and increment close_flag (treat as '('); valid if close_flag >= 0 throughout and open_flag == 0 at end.
+- Time: O(n). Space: O(1).
+
+### Decrypt Code (Sliding Window Circular)
+- File: [Some_Leetcode/sliding_window_decrypt_easy.c](Some_Leetcode/sliding_window_decrypt_easy.c)
+- Approach used: for k > 0, for each index i sum the next k elements cyclically (indices (i+1) to (i+k) modulo n using a while loop); for k < 0, sum the previous |k| elements backwards cyclically.
+- Time: O(n * |k|). Space: O(n) for output.
+- Better approach: use a sliding window prefix sum for O(n) total.
+
+| Aspect | Current approach | Better approach |
+| --- | --- | --- |
+| Time | O(n * |k|) | O(n) |
+| Technique | For each index, loop | Prefix sum + sliding |
+
 ## Requires_Correction
 
 These files are marked incorrect or inefficient. Use this section to revisit them.

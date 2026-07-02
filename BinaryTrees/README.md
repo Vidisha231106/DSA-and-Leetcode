@@ -365,3 +365,8 @@ This folder focuses on binary tree and BST fundamentals: traversals, constructio
 - File: [BinaryTrees/ZigzagLevelOrderTrav.cpp](BinaryTrees/ZigzagLevelOrderTrav.cpp)
 - Approach used: BFS with reversal on odd levels.
 - Time: O(n). Space: O(w).
+
+### Create Binary Tree From Descriptions
+- File: [BinaryTrees/CreateBinaryTreeFromDescriptions.cpp](BinaryTrees/CreateBinaryTreeFromDescriptions.cpp)
+- Approach used: two-pass build — first pass: collect all child values in an `unordered_set` to identify the root (the only parent that never appears as a child). Second pass: for each description `[parent, child, isLeft]`, create nodes on demand using an `unordered_map<int, TreeNode*>` and wire the parent-child link as left or right based on the flag.
+- Time: O(n). Space: O(n) for the map and set.

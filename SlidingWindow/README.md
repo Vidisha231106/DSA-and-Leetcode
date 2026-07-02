@@ -53,3 +53,25 @@ This folder covers fixed and variable window patterns: at-most counting, two poi
 - File: [SlidingWindow/NoOfSubstringsContainingAll3Characters.cpp](SlidingWindow/NoOfSubstringsContainingAll3Characters.cpp)
 - Approach used: window counts a/b/c; for each valid right, add (n-right).
 - Time: O(n). Space: O(1).
+
+### Arithmetic Slices
+- File: [SlidingWindow/ArithematicSlices.cpp](SlidingWindow/ArithematicSlices.cpp)
+- Approach used: for each starting index, expand right counting contiguous slices with same arithmetic difference; break when difference changes; any subarray of length ≥ 3 with same diff is counted.
+- Time: O(n^2) worst case. Space: O(1).
+- Better approach: single pass counting: whenever the difference between consecutive elements stays the same, increment a running count and add it to the total; reset to 0 on diff change.
+
+| Aspect | Current approach | Better approach |
+| --- | --- | --- |
+| Time | O(n^2) nested | O(n) single pass |
+| Logic | Brute expand | Running count accumulation |
+
+### Longest Turbulent Window (Subarray)
+- File: [SlidingWindow/LongestTurbulentWindow.cpp](SlidingWindow/LongestTurbulentWindow.cpp)
+- Approach used: variable-size window; maintain left pointer; advance right pointer, shrinking left when the turbulence pattern breaks (equal adjacent elements or direction not alternating); track maximum window length.
+- Time: O(n). Space: O(1).
+
+### Minimum Window Substring
+- File: [SlidingWindow/MinimumWindowSubstring.cpp](SlidingWindow/MinimumWindowSubstring.cpp)
+- Approach used: variable window with frequency map of target t; expand right adding characters, track `count` of matched characters; when count == len(t), shrink from left to minimize window; record smallest valid window.
+- Time: O(n+m). Space: O(|alphabet|).
+

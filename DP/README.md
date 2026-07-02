@@ -297,3 +297,130 @@ This folder covers classic DP patterns: 1D/2D tabulation, memoized recursion, in
 - File: [DP/MinimumCostTreeFromLeafValues.cpp](DP/MinimumCostTreeFromLeafValues.cpp)
 - Approach used: interval DP; for each range, try all split points; cost = mctFromLeafValues(left) + mctFromLeafValues(right) + (max_left * max_right).
 - Time: O(n^3). Space: O(n^2).
+
+### Best Time to Buy and Sell Stock III
+- File: [DP/BestTimeToBuyAndSellStock3.cpp](DP/BestTimeToBuyAndSellStock3.cpp)
+- Approach used: 3D DP with states `dp[i][buy/sell][transactions]`; tracks profit for at most 2 transactions using transaction count as third dimension. Also includes an optimised constant-space solution tracking four states: buy1, sell1, buy2, sell2.
+- Time: O(n). Space: O(n) DP or O(1) with rolling variables.
+- Better approach:
+  - Summarize current: full 3D DP array.
+  - Improvement: use four variables (buy1, sell1, buy2, sell2) updated in one pass.
+  - Comparison:
+
+| Aspect | Current approach | Better approach |
+| --- | --- | --- |
+| Space | O(n) | O(1) |
+| State | 3D table | 4 rolling variables |
+
+### Best Time to Buy and Sell Stock IV
+- File: [DP/BestTimeToBuyAndSellStock4.cpp](DP/BestTimeToBuyAndSellStock4.cpp)
+- Approach used: 3D DP `dp[i][buy/sell][k]` tracking up to K transactions; at each day decide whether to buy, sell, or hold.
+- Time: O(n*K). Space: O(n*K).
+- Better approach: roll the DP to O(K) space by keeping only the current and previous rows.
+
+### Distinct Subsequences
+- File: [DP/DistinctSubsequences.cpp](DP/DistinctSubsequences.cpp)
+- Approach used: bottom-up 2D DP iterating from the end; `dp[i][j]` = number of ways `s[i..]` contains `t[j..]`; on match, sum both use and skip choices; on mismatch, propagate skip.
+- Time: O(n*m). Space: O(n*m).
+- Better approach: reduce to O(m) space with a single 1D array processed right to left.
+
+### House Robber III (Tree DP)
+- File: [DP/HouseRobber3.cpp](DP/HouseRobber3.cpp)
+- Approach used: postorder DFS returning a pair `{taken, not_taken}` for each node; `taken = node->val + left.not_taken + right.not_taken`; `not_taken = max(left) + max(right)`. No extra space beyond recursion.
+- Time: O(n). Space: O(h).
+
+### House Robber IV (Binary Search + DP)
+- File: [DP/HouseRobber4.cpp](DP/HouseRobber4.cpp)
+- Note: File comment says TLE. Uses memoized recursion `dp[index][k]`: at each house either take it (reducing k by 1, skip next) or skip. Does not correctly memoize due to shared dp across different `k` branches. 
+- Better approach:
+  - Summarize current: memoised recursion — TLE and memo not properly keyed.
+  - Improvement: binary search on the answer (minimum capability), then greedily check if k houses can be robbed with capability ≤ mid.
+  - Comparison:
+
+| Aspect | Current approach | Better approach |
+| --- | --- | --- |
+| Time | TLE (exponential) | O(n log(max)) |
+| Technique | Memoised recursion | Binary search on answer |
+
+### House Robber V (Colour-Constrained DP)
+- File: [DP/HouseRobber5.cpp](DP/HouseRobber5.cpp)
+- Approach used: 2D DP with states `dp[i][0]` = max profit including house i, `dp[i][1]` = max profit excluding house i; when adjacent houses have the same colour, only the skip-previous option is available for taking current.
+- Time: O(n). Space: O(n).
+- Better approach: reduce to O(1) with four rolling variables.
+
+### Largest Divisible Subset
+- File: [DP/LargestDivisibleSubset.cpp](DP/LargestDivisibleSubset.cpp)
+- Approach used: sort then LIS-style DP; `dp[i]` = longest chain ending at `nums[i]`; extend when `nums[i] % nums[j] == 0`; backtrack using a `prev` array to reconstruct the subset.
+- Time: O(n^2). Space: O(n).
+
+### Longest Arithmetic Subsequence
+- File: [DP/LongestArithematicSubsequence.cpp](DP/LongestArithematicSubsequence.cpp)
+- Approach used: `dp[i]` is a hashmap from difference → length of longest arithmetic subsequence ending at i with that difference; for each pair (j, i), compute diff = nums[i] - nums[j], set `dp[i][diff] = dp[j][diff] + 1` (or 2 if new).
+- Time: O(n^2). Space: O(n^2).
+
+### Longest Arithmetic Subsequence of Given Difference
+- File: [DP/LongestArithematicSubsequenceOfGivenDifference.cpp](DP/LongestArithematicSubsequenceOfGivenDifference.cpp)
+- Approach used: hashmap DP in a single pass; for each element x, `dp[x] = dp[x - difference] + 1`; avoids the O(n^2) loop since the target predecessor is known.
+- Time: O(n). Space: O(n).
+
+### Longest String Chain
+- File: [DP/LongestStringChain.cpp](DP/LongestStringChain.cpp)
+- Approach used: sort words by length then LIS-style DP; for each pair (j, i) where `|words[i]| - |words[j]| == 1`, check if j is a predecessor by single-character deletion scan; extend chain if so.
+- Time: O(n^2 * L) where L = word length. Space: O(n).
+- Better approach: for each word, try all one-char deletions and look up result in a hashmap in O(L) per word.
+
+| Aspect | Current approach | Better approach |
+| --- | --- | --- |
+| Time | O(n^2 * L) | O(n * L^2) |
+| Lookup | Pairwise comparison | HashMap of predecessors |
+
+### Maximum Number of Items From Sale
+- File: [DP/MaximumNumberOfItemsFromSale1.cpp](DP/MaximumNumberOfItemsFromSale1.cpp)
+- Approach used: precompute for each item how many other items have price divisible by its price; then 2D knapsack DP where taking item i also counts all its divisible items (stored in map); unbounded-style loop allows re-use.
+- Time: O(n^2 + n * budget). Space: O(n * budget).
+
+### Minimum Cost to Split Into Ones
+- File: [DP/MinimumCostToSplitIntoOnes.cpp](DP/MinimumCostToSplitIntoOnes.cpp)
+- Approach used: two solutions included — a DP that tries all split points `dp[i] = min(dp[i-j] + dp[j] + j*(i-j))`, and a mathematical observation that the optimal is always to split into pairs of (1, n-1) successively, giving `n*(n-1)/2`.
+- Time: O(n^2) DP or O(1) math. Space: O(n) or O(1).
+- Better approach:
+  - Summarize current: includes both DP and closed-form.
+  - The closed-form `n*(n-1)/2` is optimal since the cost of splitting x into parts a and b is a*b and minimizing means always splitting off 1.
+
+| Aspect | DP approach | Mathematical approach |
+| --- | --- | --- |
+| Time | O(n^2) | O(1) |
+| Space | O(n) | O(1) |
+
+### Number of Dice Rolls With Target Sum
+- File: [DP/NumberOfDiceRollsWithTargetSum.cpp](DP/NumberOfDiceRollsWithTargetSum.cpp)
+- Approach used: memoised recursion; for each die count remaining and remaining target, try all face values 1..k; accumulate ways modulo 1e9+7.
+- Time: O(n * target * k). Space: O(n * target).
+- Better approach: bottom-up 2D DP `dp[dice][target]` for O(n * target) space and avoids recursion overhead.
+
+### Maximum Amount of Money Robot Can Earn
+- File: [DP/MaximumAmountOfMoneyRobotCanEarn.cpp](DP/MaximumAmountOfMoneyRobotCanEarn.cpp)
+- Approach used: 3D memoised recursion `dp[i][j][lives]`; at each cell either take the value (paying or earning) or use a life to neutralise a negative cell (subtract its cost); propagate best path from top-left to bottom-right with at most 2 lives.
+- Time: O(m * n * 3). Space: O(m * n * 3).
+
+### Maximum Path Score in a Grid
+- File: [DP/MaximumPathScoreInAGrid.cpp](DP/MaximumPathScoreInAGrid.cpp)
+- Approach used: two implementations — (1) Wrong greedy DP: stores only `(score, cost)` per cell, greedily prefers higher score path; incorrect for ≥435 test cases. (2) Correct 3D DP `dp[i][j][c]` = max score reaching (i,j) with exactly c non-zero cells counted; for each cost dimension c, propagate from neighbours; answer = max over all c ≤ k of dp[n-1][m-1][c].
+- Time: O(m * n * k). Space: O(m * n * k).
+- Note: clearly demonstrates why greedy fails and 3D DP is needed for constrained path problems.
+
+| Aspect | Wrong greedy | Correct 3D DP |
+| --- | --- | --- |
+| Correctness | Fails in many cases | Always correct |
+| Time | O(m*n) | O(m*n*k) |
+| Space | O(m*n) | O(m*n*k) |
+
+### Longest Almost Palindromic Substring
+- File: [DP/LongestAlmostPalindromicSubstring.cpp](DP/LongestAlmostPalindromicSubstring.cpp)
+- Approach used: 2D DP — `palindrome[i][j]` = 1 if s[i..j] is a strict palindrome; `almost_pal[i][j]` = 1 if s[i..j] is a palindrome with at most one character different. Build bottom-up from shorter substrings; for each `[i,j]`: if ends match, extend any `almost_pal[i+1][j-1]` to an almost palindrome; if ends differ, extend any `palindrome[i+1][j]` or `palindrome[i][j-1]`.
+- Time: O(n^2). Space: O(n^2).
+
+### Minimum Cost to Move Between Indices
+- File: [DP/MinimumCostToMoveBetweenIndices.cpp](DP/MinimumCostToMoveBetweenIndices.cpp)
+- Approach used: for each index record its "closest" index (the neighbour that is closer in value); compute forward DP and backward DP where moving to a closer index costs 1 instead of |diff|; for each query (l, r), answer is the cost to go from l to r using the prefix DP arrays.
+- Time: O(n + q). Space: O(n).
